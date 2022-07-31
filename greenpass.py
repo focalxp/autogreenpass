@@ -4,6 +4,7 @@ import time
 import smtplib
 import imghdr
 from email.message import EmailMessage
+from selenium.webdriver.chrome.service import Service
 
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
 options = webdriver.ChromeOptions()
@@ -19,7 +20,8 @@ options.add_argument("--start-maximized")
 options.add_argument('--disable-gpu')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
-web = webdriver.Chrome(executable_path="/Users/edwardkang/Downloads/chromedriver", options=options)
+s=Service('/usr/local/bin/chromedriver')
+web = webdriver.Chrome(service = s, options = options)
 web.get('https://form.jotform.com/201630197748459')
 time.sleep(1)
 print(web.title)
@@ -44,6 +46,7 @@ opt2 = web.find_element("id", 'label_input_34_1')
 opt3 = web.find_element("id", 'label_input_46_1')
 opt4 = web.find_element("id", 'label_input_35_1')
 opt5 = web.find_element("id", 'label_input_36_1')
+time.sleep(0.5)
 opt1.click()
 opt2.click()
 opt3.click()
