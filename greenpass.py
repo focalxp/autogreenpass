@@ -50,7 +50,12 @@ firstname = ["Sky",
 "Young",
 "Isaac",
 "Amy",
-"Andrew",]
+"Andrew",
+"Emma",
+"Seungwoo",
+"Vincent",
+"Eric",
+"Taehee"]
 lastname = ["Jeong",
 "Kim",
 "Kwon ",
@@ -79,7 +84,12 @@ lastname = ["Jeong",
 "Kim",
 "Kwon",
 "Park",
-"Kim",]
+"Kim",
+"Wilson",
+"Jang",
+"Freymueller",
+"Ko",
+"Kim"]
 grade = ["12",
 "10",
 "12",
@@ -108,7 +118,12 @@ grade = ["12",
 "12",
 "12",
 "11",
-"9"]
+"9",
+"10",
+"12",
+"9",
+"12",
+"11"]
 idstring = ["sjeong23",
 "rkim25",
 "mkwon23",
@@ -137,7 +152,12 @@ idstring = ["sjeong23",
 "ykim23",
 "jkwon23",
 "jepark24",
-"akim26"]
+"akim26",
+"ewilson25",
+"sjang23",
+"vfreymueller26",
+"jko23",
+"thkim24"]
 email = [
 "sjeong23@student.kis.or.kr",
 "rkim25@student.kis.or.kr",
@@ -167,7 +187,12 @@ email = [
 "ykim23@student.kis.or.kr",
 "jkwon23@student.kis.or.kr",
 "jepark24@student.kis.or.kr",
-"akim26@student.kis.or.kr"]
+"akim26@student.kis.or.kr",
+"ewilson25@student.kis.or.kr",
+"sjang23@student.kis.or.kr",
+"vfreymueller26@student.kis.or.kr",
+"jko23@student.kis.or.kr",
+"thkim24@student.kis.or.kr"]
 web = webdriver.Chrome(service = s, options = options)
 
 for i in range(len(firstname)):
