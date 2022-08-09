@@ -20,54 +20,70 @@ options.add_argument("--start-maximized")
 options.add_argument('--disable-gpu')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
+
 s=Service('/usr/local/bin/chromedriver')
+firstname = ["Sky", "Michael","Moses", "Alex"]
+lastname = ["Jeong", "Shin", "Yoon", "Choi"]
+grade = ["12", "12", "12", "12"]
+idstring = ["sjeong23","dshin23","pyoon23", "achoi23"]
+email = ["sjeong23@student.kis.or.kr", "dshin23@student.kis.or.kr", "pyoon23@student.kis.or.kr", "achoi23@student.kis.or.kr"]
 web = webdriver.Chrome(service = s, options = options)
-web.get('https://form.jotform.com/201630197748459')
-time.sleep(1)
-print(web.title)
-firstname = "1"
-lastname = "3"
-idstring = "1"
-first = web.find_element("xpath", '//*[@id="first_9"]')
-first.send_keys(firstname)
-last = web.find_element("xpath", '//*[@id="last_9"]')
-last.send_keys(lastname)
-student = web.find_element("xpath", '//*[@id="label_input_10_0"]')
-student.click()
-findgrade = web.find_element("id",'input_16')
-selectgrade = Select(findgrade)
-selectgrade.select_by_value("11")
-id = web.find_element("xpath", '//*[@id="input_17"]')
-id.send_keys(idstring)
-next = web.find_element("xpath", '//*[@id="form-pagebreak-next_31"]')
-next.click()
-opt1 = web.find_element("id", 'label_input_32_1')
-opt2 = web.find_element("id", 'label_input_34_1')
-opt3 = web.find_element("id", 'label_input_46_1')
-opt4 = web.find_element("id", 'label_input_35_1')
-opt5 = web.find_element("id", 'label_input_36_1')
-time.sleep(0.5)
-opt1.click()
-opt2.click()
-opt3.click()
-opt4.click()
-opt5.click()
-submit = web.find_element("xpath", '//*[@id="input_2"]')
-submit.click()
-time.sleep(1)
-web.get_screenshot_as_file("Screenshot.png")
-msg = EmailMessage()
-msg['Subject'] = 'Green Pass'
-msg['From'] = 'bot19992003@gmail.com'
-msg['To'] = 'focalxp7@gmail.com'
 
-with open('Screenshot.png', 'rb') as f:
-    file_data = f.read()
-    file_type = imghdr.what(f.name)
-    file_name = f.name
+for i in range(len(firstname)):
+    web.get('https://form.jotform.com/201630197748459')
+    time.sleep(1)
+    print(web.title)
+    first = web.find_element("xpath", '//*[@id="first_9"]')
+    first.send_keys(firstname[i])
+    last = web.find_element("xpath", '//*[@id="last_9"]')
+    last.send_keys(lastname[i])
+    student = web.find_element("xpath", '//*[@id="label_input_10_0"]')
+    student.click()
+    findgrade = web.find_element("id",'input_16')
+    selectgrade = Select(findgrade)
+    if(grade[i] == "9"):
+        selectgrade.select_by_value("9")
+    
+    if(grade[i] == "10"):
+        selectgrade.select_by_value("10")
+    
+    if(grade[i] == "11"):
+        selectgrade.select_by_value("11")
+    
+    if(grade[i] == "12"):
+        selectgrade.select_by_value("12")
+    id = web.find_element("xpath", '//*[@id="input_17"]')
+    id.send_keys(idstring[i])
+    next = web.find_element("xpath", '//*[@id="form-pagebreak-next_31"]')
+    next.click()
+    opt1 = web.find_element("id", 'label_input_32_1')
+    opt2 = web.find_element("id", 'label_input_34_1')
+    opt3 = web.find_element("id", 'label_input_46_1')
+    opt4 = web.find_element("id", 'label_input_35_1')
+    opt5 = web.find_element("id", 'label_input_36_1')
+    time.sleep(0.5)
+    opt1.click()
+    opt2.click()
+    opt3.click()
+    opt4.click()
+    opt5.click()
+    submit = web.find_element("xpath", '//*[@id="input_2"]')
+    submit.click()
+    time.sleep(1)
+    web.get_screenshot_as_file("Screenshot.png")
+    msg = EmailMessage()
+    msg['Subject'] = 'Green Pass'
+    msg['From'] = 'bot19992003@gmail.com'
+    msg['To'] = email[i]
 
-msg.add_attachment(file_data, maintype='image', subtype = 'file_type',filename = file_name)
+    with open('Screenshot.png', 'rb') as f:
+        file_data = f.read()
+        file_type = imghdr.what(f.name)
+        file_name = f.name
 
-with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
-    smtp.login('bot19992003@gmail.com', 'swxtuvzadjwudfdz')
-    smtp.send_message(msg)
+    msg.add_attachment(file_data, maintype='image', subtype = 'file_type',filename = file_name)
+
+    with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
+        smtp.login('bot19992003@gmail.com', 'swxtuvzadjwudfdz')
+        smtp.send_message(msg)
+    print(firstname[i] + " Done") 
