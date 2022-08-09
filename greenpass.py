@@ -22,7 +22,8 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
 
 s=Service('/usr/local/bin/chromedriver')
-firstname = ["Sky",
+firstname = [
+"Sky",
 "Raymond",
 "Minwoo",
 "Sean",
@@ -55,8 +56,14 @@ firstname = ["Sky",
 "Seungwoo",
 "Vincent",
 "Eric",
-"Taehee"]
-lastname = ["Jeong",
+"Taehee",
+"Elvin",
+"Minjae",
+"Yeonseo",
+"Edward"
+]
+lastname = [
+"Jeong",
 "Kim",
 "Kwon ",
 "Kim",
@@ -64,7 +71,7 @@ lastname = ["Jeong",
 "Lee",
 "Won",
 "Koh",
-"Muhammad",
+"Khalil",
 "Koo",
 "Sun ",
 "Lee",
@@ -89,8 +96,14 @@ lastname = ["Jeong",
 "Jang",
 "Freymueller",
 "Ko",
-"Kim"]
-grade = ["12",
+"Kim",
+"Kim",
+"Kim",
+"Lee",
+"Kang"
+]
+grade = [
+"12",
 "10",
 "12",
 "12",
@@ -123,7 +136,12 @@ grade = ["12",
 "12",
 "9",
 "12",
-"11"]
+"11",
+"12",
+"12",
+"12",
+"12"
+]
 idstring = ["sjeong23",
 "rkim25",
 "mkwon23",
@@ -157,7 +175,12 @@ idstring = ["sjeong23",
 "sjang23",
 "vfreymueller26",
 "jko23",
-"thkim24"]
+"thkim24",
+"jskim23",
+"mjkim23",
+"ylee23",
+"ekang23"
+]
 email = [
 "sjeong23@student.kis.or.kr",
 "rkim25@student.kis.or.kr",
@@ -192,7 +215,12 @@ email = [
 "sjang23@student.kis.or.kr",
 "vfreymueller26@student.kis.or.kr",
 "jko23@student.kis.or.kr",
-"thkim24@student.kis.or.kr"]
+"thkim24@student.kis.or.kr",
+"jskim23@student.kis.or.kr",
+"mjkim23@student.kis.or.kr",
+"ylee23@student.kis.or.kr",
+"ekang23@student.kis.or.kr"
+]
 web = webdriver.Chrome(service = s, options = options)
 
 for i in range(len(firstname)):
