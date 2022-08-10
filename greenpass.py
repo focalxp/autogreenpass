@@ -3,6 +3,8 @@ from selenium.webdriver.support.select import Select
 import time
 import smtplib
 import imghdr
+import numpy as np
+from sklearn import utils
 from email.message import EmailMessage
 from selenium.webdriver.chrome.service import Service
 
@@ -22,14 +24,14 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
 
 s=Service('/usr/local/bin/chromedriver')
-firstname = [
+firstname = np.array([
 "Sky",
 "Raymond",
 "Minwoo",
 "Sean",
 "Ethan",
 "James",
-"Jinho",
+"Jinho ",
 "Evan",
 "Muhammad",
 "Raphael",
@@ -43,15 +45,15 @@ firstname = [
 "Ethan",
 "Michael",
 "Moses",
-"Alex",
+"Alex ",
 "Seojoon",
 "Matthew",
 "Seungmi",
 "Jason",
 "Young",
-"Isaac",
+"Isaac ",
 "Amy",
-"Andrew",
+"Andrew ",
 "Emma",
 "Seungwoo",
 "Vincent",
@@ -59,13 +61,17 @@ firstname = [
 "Taehee",
 "Elvin",
 "Minjae",
-"Yeonseo",
-"Edward"
-]
-lastname = [
+"Yeonseo ",
+"Sohee",
+"Jennifer ",
+"Arthur",
+"Philip",
+"Seren"
+])
+lastname = np.array([
 "Jeong",
 "Kim",
-"Kwon ",
+"Kwon",
 "Kim",
 "Hong",
 "Lee",
@@ -100,49 +106,14 @@ lastname = [
 "Kim",
 "Kim",
 "Lee",
-"Kang"
-]
-grade = [
-"12",
-"10",
-"12",
-"12",
-"12",
-"12",
-"11",
-"10",
-"12",
-"11",
-"11",
-"12",
-"12",
-"11",
-"11",
-"12",
-"12",
-"9",
-"12",
-"12",
-"12",
-"12",
-"12",
-"12",
-"10",
-"12",
-"12",
-"11",
-"9",
-"10",
-"12",
-"9",
-"12",
-"11",
-"12",
-"12",
-"12",
-"12"
-]
-idstring = ["sjeong23",
+"Yoon",
+"kim",
+"Park",
+"Park",
+"Park",
+])
+idstring = np.array([
+"sjeong23",
 "rkim25",
 "mkwon23",
 "swkim23",
@@ -178,11 +149,15 @@ idstring = ["sjeong23",
 "thkim24",
 "jskim23",
 "mjkim23",
-"ylee23",
-"ekang23"
-]
-email = [
-"sjeong23@student.kis.or.kr",
+"ylee23 ",
+"syoon23",
+"jmskim23",
+"spark23",
+"ppark23",
+"spark24",
+])
+email = np.array([
+"sjeong23@kis.or.kr",
 "rkim25@student.kis.or.kr",
 "mkwon23@student.kis.or.kr",
 "swkim23@student.kis.or.kr",
@@ -219,8 +194,57 @@ email = [
 "jskim23@student.kis.or.kr",
 "mjkim23@student.kis.or.kr",
 "ylee23@student.kis.or.kr",
-"ekang23@student.kis.or.kr"
-]
+"syoon23@student.kis.or.kr",
+"jmskim23@student.kis.or.kr",
+"spark23@student.kis.or.kr",
+"ppark23@student.kis.or.kr",
+"spark24@student.kis.or.kr",
+])
+grade = np.array([
+"12",
+"10",
+"12",
+"12",
+"12",
+"12",
+"11",
+"10",
+"12",
+"11",
+"11",
+"12",
+"12",
+"11",
+"11",
+"12",
+"12",
+"9",
+"12",
+"12",
+"12",
+"12",
+"12",
+"12",
+"10",
+"12",
+"12",
+"11",
+"9",
+"10",
+"12",
+"9",
+"12",
+"11",
+"12",
+"12",
+"12",
+"12",
+"12",
+"12",
+"12",
+"11",
+])
+email, idstring, firstname, lastname, grade = utils.shuffle(email, idstring, firstname, lastname, grade)
 web = webdriver.Chrome(service = s, options = options)
 
 for i in range(len(firstname)):
@@ -281,4 +305,7 @@ for i in range(len(firstname)):
         smtp.login('bot19992003@gmail.com', 'swxtuvzadjwudfdz')
         smtp.send_message(msg)
     print(firstname[i] + " Done")
+
+
+
 
