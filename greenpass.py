@@ -25,6 +25,7 @@ options.add_argument('--no-sandbox')
 
 s=Service('/usr/local/bin/chromedriver')
 firstname = np.array([
+"Edward",
 "Sky",
 "Raymond",
 "Minwoo",
@@ -66,9 +67,16 @@ firstname = np.array([
 "Jennifer ",
 "Arthur",
 "Philip",
-"Seren"
+"Seren",
+"Minsoo",
+"Alex",
+"Andrew",
+"William",
+"Miley",
+"hyunbin"
 ])
 lastname = np.array([
+"Kang",
 "Jeong",
 "Kim",
 "Kwon",
@@ -111,8 +119,15 @@ lastname = np.array([
 "Park",
 "Park",
 "Park",
+"Kang",
+"Park",
+"Noh",
+"Kim",
+"Chang",
+"kim",
 ])
 idstring = np.array([
+"ekang23",
 "sjeong23",
 "rkim25",
 "mkwon23",
@@ -155,9 +170,16 @@ idstring = np.array([
 "spark23",
 "ppark23",
 "spark24",
+"mikang23",
+"apark23",
+"anoh23",
+"wikim23",
+"cchang23",
+"hbkim23",
 ])
 email = np.array([
-"sjeong23@kis.or.kr",
+"ekang23@student.kis.or.kr",
+"sjeong23@student.kis.or.kr",
 "rkim25@student.kis.or.kr",
 "mkwon23@student.kis.or.kr",
 "swkim23@student.kis.or.kr",
@@ -199,9 +221,16 @@ email = np.array([
 "spark23@student.kis.or.kr",
 "ppark23@student.kis.or.kr",
 "spark24@student.kis.or.kr",
+"mikang23@student.kis.or.kr",
+"apark23@student.kis.or.kr",
+"anoh23@student.kis.or.kr",
+"wikim23@student.kis.or.kr",
+"cchang23@student.kis.or.kr",
+"hbkim23@student.kis.or.kr",
 ])
 grade = np.array([
 "12",
+"12",
 "10",
 "12",
 "12",
@@ -243,6 +272,12 @@ grade = np.array([
 "12",
 "12",
 "11",
+"12",
+"12",
+"12",
+"12",
+"12",
+"12",
 ])
 email, idstring, firstname, lastname, grade = utils.shuffle(email, idstring, firstname, lastname, grade)
 web = webdriver.Chrome(service = s, options = options)
@@ -250,7 +285,7 @@ web = webdriver.Chrome(service = s, options = options)
 for i in range(len(firstname)):
     web.get('https://form.jotform.com/201630197748459')
     time.sleep(1)
-    print(web.title)
+    #print(web.title)
     first = web.find_element("xpath", '//*[@id="first_9"]')
     first.send_keys(firstname[i])
     last = web.find_element("xpath", '//*[@id="last_9"]')
@@ -304,8 +339,17 @@ for i in range(len(firstname)):
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login('bot19992003@gmail.com', 'swxtuvzadjwudfdz')
         smtp.send_message(msg)
-    print(firstname[i] + " Done")
+    print("%s %d/%d" %(firstname[i], i + 1, len(firstname)))
 
+#test lenth of arrays
+#print(len(firstname))
+#print(len(lastname))
+#print(len(idstring))
+#print(len(grade))
+#print(len(email))
 
+#test order of arrays
+#for i in range (len(firstname)):
+    #print(firstname[i] + " " + lastname[i] + " " + grade[i] + " " + idstring[i] + " " + email[i])
 
 
