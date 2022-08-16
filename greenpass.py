@@ -28,10 +28,10 @@ options.add_argument('--no-sandbox')
 s=Service('/usr/local/bin/chromedriver')
 
 firstname  = np.concatenate((earlyfirstname, latefirstname))
-lastname = np.concatenate((earlylastname,latelastname))
+lastname = np.concatenate((earlylastname, latelastname))
 idstring = np.concatenate((earlyidstring, lateidstring))
-grade = np.concatenate((lategrade, earlygrade))
-email = np.concatenate(lateemail,earlyemail)
+grade = np.concatenate((earlygrade, lategrade))
+email = np.concatenate((earlyemail, lateemail))
 
 
 
@@ -79,6 +79,12 @@ for i in range(len(firstname)):
     submit.click()
     time.sleep(1)
     web.get_screenshot_as_file("Screenshot.png")
+    payment = EmailMessage()
+    payment['Subject'] = 'GREENPASS PAYMENT!'
+    payment['From'] = 'bot19992003@gmail.com'
+    payment['To'] = email[i]
+    payment.set_content('Greenpass payment required by the end of the week. If youve already paid or are exempted from payment its taken care of, but if you havent, please bring cash. I have change for 10,000 won bills. Contact edward__kang on Instagram for help or 010-6307-7705 .  (Failure of payment will result in termination of your service)')
+
     msg = EmailMessage()
     msg['Subject'] = 'Green Pass'
     msg['From'] = 'bot19992003@gmail.com'
@@ -94,6 +100,7 @@ for i in range(len(firstname)):
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login('bot19992003@gmail.com', 'swxtuvzadjwudfdz')
         smtp.send_message(msg)
+        smtp.send_message(payment)
     print("%s %d/%d" %(firstname[i], i + 1, len(firstname)))
 
 #test lenth of arrays

@@ -58,17 +58,17 @@ earlyidstring = np.array([
 ])
 
 earlyemail = np.array([
-"shwang23@student.kis.or",
+"shwang23@student.kis.or.kr",
 "jylee24@student.kis.or.kr",
 "yjung24@student.kis.or.kr",
 "cchang23@student.kis.or.kr",
 "wikim23@student.kis.or.kr",
 "apark23@student.kis.or.kr",
 "jko23@student.kis.or.kr",
-"hakoh25@student.kis.or.kr",
+"hskoh25@student.kis.or.kr",
 "mkhalil23@student.kis.or.kr",
 "jsun24@student.kis.or.kr",
-"sjeong23@kis.or.kr",
+"sjeong23@student.kis.or.kr",
 ])
 
 earlyemail, earlyidstring, earlyfirstname, earlylastname, earlygrade = utils.shuffle(earlyemail, earlyidstring, earlyfirstname, earlylastname, earlygrade)
