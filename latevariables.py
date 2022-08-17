@@ -44,6 +44,7 @@ latefirstname = np.array([
 "Amy",
 "Wonkyoung",
 "Anjella",
+"Brian",
 ])
 latelastname = np.array([
 "Kim",
@@ -88,6 +89,7 @@ latelastname = np.array([
 "Park",
 "Seong",
 "Kang Lee",
+"Kim",
 ])
 lategrade = np.array([
 "10",
@@ -130,6 +132,7 @@ lategrade = np.array([
 "12",
 "12",
 "11",
+"12",
 "12",
 "12",
 ])
@@ -176,6 +179,7 @@ lateemail = np.array([
 "jepark24@student.kis.or.kr",
 "wseong23@student.kis.or.kr",
 "akanglee23@student.kis.or.kr",
+"bkim23@student.kis.or.kr",
 ])
 lateidstring = np.array([
 "rkim25",
@@ -220,6 +224,7 @@ lateidstring = np.array([
 "jepark24",
 "wseong23",
 "akanglee23",
+"bkim23",
 ])
 
 lateemail, lateidstring, latefirstname, latelastname, lategrade = utils.shuffle(lateemail, lateidstring, latefirstname, latelastname, lategrade)
