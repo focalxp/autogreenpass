@@ -103,15 +103,15 @@ for i in range(len(firstname)):
         smtp.send_message(payment)
     print("%s %d/%d" %(firstname[i], i + 1, len(firstname)))
 
-#test lenth of arrays
-#print(len(firstname))
-#print(len(lastname))
-#print(len(idstring))
-#print(len(grade))
-#print(len(email))
+#test length of arrays
+# print(len(firstname))
+# print(len(lastname))
+# print(len(idstring))
+# print(len(grade))
+# print(len(email))
 
 #test order of arrays
-#for i in range (len(firstname)):
-    #print(firstname[i] + " " + lastname[i] + " " + grade[i] + " " + idstring[i] + " " + email[i])
+# for i in range (len(firstname)):
+#     print(firstname[i] + " " + lastname[i] + " " + grade[i] + " " + idstring[i] + " " + email[i])
 
 
