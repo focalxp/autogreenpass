@@ -82,13 +82,13 @@ for i in range(len(firstname)):
     payment = EmailMessage()
     payment['Subject'] = 'GREENPASS PAYMENT!'
     payment['From'] = 'bot19992003@gmail.com'
-    payment['To'] = email[i]
+    payment['To'] = 'focalxp7@gmail.com'
     payment.set_content('Greenpass payment required by the end of the week. If youve already paid or are exempted from payment its taken care of, but if you havent, please bring cash. I have change for 10,000 won bills. Contact edward__kang on Instagram for help or 010-6307-7705 .  (Failure of payment will result in termination of your service)')
 
     msg = EmailMessage()
     msg['Subject'] = 'Green Pass'
     msg['From'] = 'bot19992003@gmail.com'
-    msg['To'] = email[i]
+    msg['To'] = 'focalxp7@gmail.com'
 
     with open('Screenshot.png', 'rb') as f:
         file_data = f.read()
