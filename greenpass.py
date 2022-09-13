@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.service import Service
 from earlyvariables import earlyfirstname, earlylastname, earlygrade, earlyidstring, earlyemail
 from latevariables import latefirstname, latelastname, lategrade, lateidstring, lateemail
 
-user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.52 Safari/537.36"
 options = webdriver.ChromeOptions()
 options.headless = True
 options.add_argument(f'user-agent={user_agent}')
@@ -79,16 +79,16 @@ for i in range(len(firstname)):
     submit.click()
     time.sleep(1)
     web.get_screenshot_as_file("Screenshot.png")
-    payment = EmailMessage()
-    payment['Subject'] = 'GREENPASS PAYMENT!'
-    payment['From'] = 'bot19992003@gmail.com'
-    payment['To'] = 'focalxp7@gmail.com'
-    payment.set_content('Greenpass payment required by the end of the week. If youve already paid or are exempted from payment its taken care of, but if you havent, please bring cash. I have change for 10,000 won bills. Contact edward__kang on Instagram for help or 010-6307-7705 .  (Failure of payment will result in termination of your service)')
+    # payment = EmailMessage()
+    # payment['Subject'] = 'GREENPASS PAYMENT!'
+    # payment['From'] = 'bot19992003@gmail.com'
+    # payment['To'] = email[i]
+    # payment.set_content('Greenpass payment required by the end of the week. If youve already paid or are exempted from payment its taken care of, but if you havent, please bring cash. I have change for 10,000 won bills. Contact edward__kang on Instagram for help or 010-6307-7705 .  (Failure of payment will result in termination of your service)')
 
     msg = EmailMessage()
     msg['Subject'] = 'Green Pass'
     msg['From'] = 'bot19992003@gmail.com'
-    msg['To'] = 'focalxp7@gmail.com'
+    msg['To'] = email[i]
 
     with open('Screenshot.png', 'rb') as f:
         file_data = f.read()
@@ -100,7 +100,7 @@ for i in range(len(firstname)):
     with smtplib.SMTP_SSL('smtp.gmail.com',465) as smtp:
         smtp.login('bot19992003@gmail.com', 'swxtuvzadjwudfdz')
         smtp.send_message(msg)
-        smtp.send_message(payment)
+        #smtp.send_message(payment)
     print("%s %d/%d" %(firstname[i], i + 1, len(firstname)))
 
 #test length of arrays
