@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.service import Service
 from earlyvariables import earlyfirstname, earlylastname, earlygrade, earlyidstring, earlyemail
 from latevariables import latefirstname, latelastname, lategrade, lateidstring, lateemail
 
-user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.5195.52 Safari/537.36"
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.87 Safari/537.36"
 options = webdriver.ChromeOptions()
 options.headless = True
 options.add_argument(f'user-agent={user_agent}')
@@ -67,14 +67,12 @@ for i in range(len(firstname)):
     opt1 = web.find_element("id", 'label_input_32_1')
     opt2 = web.find_element("id", 'label_input_34_1')
     opt3 = web.find_element("id", 'label_input_46_1')
-    opt4 = web.find_element("id", 'label_input_35_1')
-    opt5 = web.find_element("id", 'label_input_36_1')
+    opt4 = web.find_element("id", 'label_input_36_1')
     time.sleep(0.5)
     opt1.click()
     opt2.click()
     opt3.click()
     opt4.click()
-    opt5.click()
     submit = web.find_element("xpath", '//*[@id="input_2"]')
     submit.click()
     time.sleep(1)
@@ -84,7 +82,6 @@ for i in range(len(firstname)):
     # payment['From'] = 'bot19992003@gmail.com'
     # payment['To'] = email[i]
     # payment.set_content('Greenpass payment required by the end of the week. If youve already paid or are exempted from payment its taken care of, but if you havent, please bring cash. I have change for 10,000 won bills. Contact edward__kang on Instagram for help or 010-6307-7705 .  (Failure of payment will result in termination of your service)')
-
     msg = EmailMessage()
     msg['Subject'] = 'Green Pass'
     msg['From'] = 'bot19992003@gmail.com'
@@ -92,7 +89,7 @@ for i in range(len(firstname)):
 
     with open('Screenshot.png', 'rb') as f:
         file_data = f.read()
-        file_type = imghdr.what(f.name)
+        file_type = imghdr.what(f.name) 
         file_name = f.name
 
     msg.add_attachment(file_data, maintype='image', subtype = 'file_type',filename = file_name)
